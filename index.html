@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LUNEXA - Energía Solar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <a href="#inicio">
+        <img src="logo.png" alt="Logo de LUNEXA" class="logo-png">
+      </a>
+    </div>
+    <button class="menu-toggle" aria-label="Abrir menú">&#9776;</button>
+    <nav class="nav-principal">
+      <ul>
+        <li><a href="#inicio" class="pill">Inicio</a></li>
+        <li class="dropdown">
+          <a href="#servicios" class="dropdown-toggle">Servicios</a>
+          <ul class="submenu">
+            <li><a href="empresa.html">Empresa</a></li>
+            <li><a href="hogares.html">Hogares</a></li>
+          </ul>
+        </li>
+        <li><a href="#conocenos">Conócenos</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="inicio" class="hero">
+    <div class="hero-content">
+      <h1>
+        Tu techo <span class="destacado">produce</span>, Tú <span class="destacado">ahorras</span> con coste <span class="destacado destacado-mayus">CERO</span>
+      </h1>
+      <p class="frase-secundaria">
+        La energía solar, al servicio de tu ahorro.<br><strong>GRATIS</strong>
+      </p>
+      <a href="#servicios" class="btn">Ver Servicios</a>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios" class="section servicios">
+    <h2>Nuestros Servicios</h2>
+    <div class="tarjetas-servicios">
+      <a href="empresa.html" class="tarjeta-link">
+        <div class="tarjeta">
+          <img src="empresa.jpg" alt="Empresa">
+          <h3>EMPRESA</h3>
+          <p>Ahorra desde el primer día sin inversión inicial...</p>
+        </div>
+      </a>
+    
+      <a href="hogares.html" class="tarjeta-link">
+        <div class="tarjeta">
+          <img src="hogares.jpg" alt="Hogares">
+          <h3>HOGARES</h3>
+          <p>Instala energía solar en tu comunidad sin coste inicial y empieza a ahorrar desde el primer mes.</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- CONÓCENOS -->
+  <section id="conocenos" class="section alt-bg margin-header-fix">
+    <h2>Conócenos</h2>
+    <p>
+      En LUNEXA trabajamos para que el acceso a la energía solar deje de ser una opción inaccesible y se convierta en una oportunidad para todos. A través de un modelo sin inversión inicial, acercamos soluciones fotovoltaicas a empresas y comunidades comprometidas con un futuro más sostenible.
+    </p>
+    <div class="conocenos-info">
+      <div class="valores-box">
+        <h3>Nuestra Misión</h3>
+        <p>  Democratizar el acceso a la energía limpia, eliminando barreras económicas y técnicas, para que cualquiera pueda producir y consumir su propia energía solar de forma sencilla, rentable y sin riesgos.</p>
+      </div>
+      <div class="valores-box">
+        <h3>Nuestra Visión</h3>
+        <p>Impulsar un modelo energético descentralizado en el que cada tejado contribuya activamente a un sistema más limpio y eficiente. Nuestro objetivo es liderar la transición hacia una energía más accesible, participativa y respetuosa con el medio ambiente.</p>
+      </div>
+      <div class="valores-box">
+        <h3>Nuestros Valores</h3>
+        <ul class="lista-valores">
+          <li>Compromiso ambiental</li>
+          <li>Transparencia</li>
+          <li>Innovación</li>
+          <li>Accesibilidad</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="section">
+    <h2>Contacto</h2>
+    <p>
+      ¿Tienes dudas o te gustaría saber cómo podemos ayudarte a ahorrar con energía solar? Escríbenos y te responderemos lo antes posible.
+    </p>
+    <div class="contacto-wrapper">
+      <div class="mini-contacto">
+        <p><strong>📧</strong> LUNEXA.ENERGY@gmail.com</p>
+        <p><strong>📞</strong> 638 154 406</p>
+      </div>
+      <form action="#" method="post" class="contact-form">
+        <input type="text" name="nombre" placeholder="Nombre" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <textarea name="mensaje" rows="4" placeholder="Tu mensaje" required></textarea>
+        <button type="submit" class="btn">Enviar</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 LUNEXA · Energía Solar Inteligente</p>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    const toggleBtn = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-principal ul');
+    const dropdownToggle = document.querySelector('.dropdown-toggle');
+    const submenu = document.querySelector('.submenu');
+
+    toggleBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('show');
+    });
+
+    dropdownToggle.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        submenu.classList.toggle('show-submenu');
+        document.querySelector('#servicios')?.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+
+    document.querySelectorAll('.nav-principal a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          navMenu.classList.remove('show');
+          submenu.classList.remove('show-submenu');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
